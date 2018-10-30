@@ -1,0 +1,59 @@
+var levelState = {
+
+  create: function() {
+
+    //Add a background
+  //  game.add.
+
+    this.controls = game.input.keyboard.addKeys(
+  {
+   'jump': Phaser.KeyCode.W,
+   'left': Phaser.KeyCode.A,
+   'right': Phaser.KeyCode.D
+  }
+);
+
+
+    game.stage.backgroundColor = '#000';
+
+    //  Create our Timer
+    game.global.timer = game.time.create(false);
+
+    //  Set a TimerEvent to occur after 2 seconds
+    game.global.timer.loop(600000, updateCounter, this);
+
+    //  Start the timer running - this is important!
+    //  It won't start automatically, allowing you to hook it to button events and the like.
+    timer.start();
+
+function update() {
+
+  game.global.dayCount ++;
+
+  console.log(game.global.dayCount);
+
+}
+
+
+  GainPoint: function() {
+    game.global.score++;  //Increase the score
+
+
+
+
+    if(game.global.score >= 10) { //Does the player have enough points to win?
+      this.Win();
+    }
+  },
+
+
+
+
+  Win: function() {
+    game.state.start('win');  //Go to the win state
+  }
+
+
+
+
+};
